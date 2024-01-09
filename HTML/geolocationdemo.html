@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <script>
+            function dispalyLocation(){
+                //to check geolocation is supportd or not
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showposition, showerrormessage);
+                }else{
+                    document.getElementById("myloc").innerHTML="Location not supported by browser";
+                }
+            }
+            function showposition(position){
+                document.getElementById("myloc").innerHTML=
+                "Latitude: "+position.coords.latitude+"<br> Longitude: "+position.coords.longitude;
+            }
+            function showerrormessage(){
+                document.getElementById("myloc").innerHTML = "Error Occured !!!"
+            }
+        </script>
+        <button type="button" name="btn" id="btn" onclick="dispalyLocation()">get location details</button>
+        <p id="myloc"></p>
+    </body>
+</html>

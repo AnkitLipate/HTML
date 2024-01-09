@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <style>
+            @keyframes animation1 {
+                from{
+                    background-color: red;
+                    color: blue;
+                    width: 300px;
+                    margin-left: 20px;
+                    margin-top: 50px;;
+                }
+                to{
+                    background-color: yellow;
+                    color: blue;
+                    width: 500px;
+                    margin-left: 200px;
+                    margin-top: 200px;
+                }
+            }
+            @keyframes animation2 {
+                10%{
+                    background-color: red;
+                    color: blue;
+                    width: 300px;
+                    margin-left: 20px;
+                    margin-top: 50px;;
+                }
+                25%{
+                    background-color: yellow;
+                    color: blue;
+                    width: 500px;
+                    margin-left: 200px;
+                    margin-top: 200px;
+                }
+                50%{
+                    background-color: green;
+                    color: blue;
+                    width: 800px;
+                }
+                70%{
+                    background-color: green;
+                    color: blue;
+                    width: 800px;
+                }
+                100%{
+                    background-color: cyan;
+                    color: blue;
+                    width: 800px;
+                }
+            }
+            div.one{
+               /* background-image: linear-gradient(90deg, red, yellow); 
+                background-image: radial-gradient(circle, red 10%, yellow 20%, blue 60%);*/
+                background-image: conic-gradient(red 0deg, red 90deg, yellow 90deg, yellow 180deg, green);
+                color: white;
+                font-size: 30px;
+                border: 2px solid red;
+                border-radius: 10px;
+                box-shadow: 2px 4px 5px blue;
+                text-shadow: 2px 4px 5px red;
+                text-align: center;
+            }
+            #mydiv{
+                width: 200px;
+                height: 200px;
+                border: 2px solid red;
+                border-radius: 20px;
+                float: left;
+                margin: 50px 40px 20px 10px;
+                padding: 50px;
+                word-wrap: break-word;
+                animation-name: animation2;
+                animation-duration: 5s;
+                animation-iteration-count: 5;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="one">
+            <h1>This is IACSD Chutiya center</h1>
+        </div>
+        <div id="mydiv">
+           <img src="./image/flower.png" width="200px" height="200px"></img>
+        </div>
+        <div>
+            text decoration values
+        </div>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script src = "./script/jquery.js"></script>
+        <script>
+           /*jQuery(document).ready(function(){
+                alert("Hello World!!");
+            });*/
+            $(document).ready(function(){
+             //   alert("Hello World!!");
+             //$('p').css('background-color', "cyan")
+             $('#btn1').click(function(){
+                $('p:odd').css({
+                "background-color" : "cyan",
+                "border":"2px solid blue"
+             }) 
+             });
+            });
+        </script>
+    </head>
+    <body>
+        <button type="button" id="btn1">click me</button>
+        <p>this is para-0</p>
+        <p>this is para-1</p>
+        <p>this is para-2</p>
+        <p>this is para-3</p>
+    </body>
+</html>

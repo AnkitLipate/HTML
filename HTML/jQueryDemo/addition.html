@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <script src="./script/jquery.js"></script>
+        <script>
+            //this code will get executed when document is loaded in memory
+            //and ready to use 
+            $(document).ready(function(){
+                //assign click event to btn1
+                $('#btn1').click(function(){
+                    //to retreive the value of textbox
+                    var n1 = parseInt($('#n1').val());
+                    var n2 = parseInt($('#n2').val());
+                    alert(n1 + n2);
+                    $('#mydiv').html((n1 + n2));
+                });
+
+
+                //assign click event to btn2
+                $('#btn2').click(function(){
+                    /*parr = document.getElementByTagName('p');
+                    for(var i=0; i<parr.length;i++){
+                        alert(parr[i].innerHTML);
+                    }*/
+
+                    //each is function which generates for loop
+                    //to retreive values from each selected element 
+                    //html() function is same as innerHTML in javaScript
+                    $('p').each(function(index, element){
+                        //if statement will help to display it for only 2 paragraphs 
+                        if(index<2){
+                        //alert(index + ") " +$(element).html());
+                        //it will concatinate the paragraph contents 
+                        //in innerHTML of div tag
+                        var pdata = $(element).html();
+                        var divdata = $('#mydiv').html();
+                        $('#mydiv').html(divdata+pdata);
+                        }  
+                    })
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <p>This is para1</p>
+        <p>This is para2</p>
+        <p>This is para3</p>
+        Number1: <input type="text" name="nm" id="n1"><br>
+        Number2: <input type="text" name="nm" id="n2"><br>
+        <button type="button" id="btn1" name="btn1">addition</button>
+        <button type="button" id="btn2" name="btn2">show para</button>
+        <div id="mydiv">
+
+        </div>
+    </body>
+</html>

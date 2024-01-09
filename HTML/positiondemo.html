@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <style>
+            #mydiv1{
+                position: relative;
+                width: 400;
+                height: 200;
+                border: 2px solid red;
+            }
+            #mydiv2{
+                position: relative;
+                top: 60px;
+                right: 0px;
+                height: 100px;
+                width: 200px;
+                border: 2px solid green;
+            }
+            #mydiv4{
+                position: static;
+                top: 60px;
+                left: 100px;
+                height: 100px;
+                width: 200px;
+                border: 2px solid greenyellow;
+            }
+            .fixed{
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                width: 200px;
+                height: 100px;
+                border: 2px solid rebeccapurple;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Position demo</h1>
+        <div id="mydiv1">
+            This div with position relative
+            <div id="mydiv2">
+                This is div with position absolute
+            </div>
+        </div>
+        <div id="mydiv4">
+            This div with position static
+        </div>
+        <div class="fixed">
+            This div with position fixed
+        </div>
+
+    </body>
+</html>

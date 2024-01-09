@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <style>
+            #div1{
+                background-color:cyan;
+                border: 1px solid red;
+                border-radius: 20px;
+                height: 200px;
+                width:  200px;
+            }
+            #div2{
+                background-color:yellow;
+                border: 1px solid red;
+                border-radius: 20px;
+                height: 200px;
+                width:  200px;
+            }
+        </style>
+        <script src="./script/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#slideup').click(function(){
+                    $('#div1').slideUp("slow", function(){
+                        $('#myp').html("slide up complete");
+                    });
+                    $('#div2').slideUp("fast", function(){
+                        $('#myp').html("slide up complete");
+                    });
+                });
+                $('#slidedown').click(function(){
+                    $('#div1').slideDown(2000, function(){
+                        $('#myp').html("slideDown complete");
+                    });
+                    $('#div2').slideDown(2000, function(){
+                        $('#myp').html("slideDown complete");
+                    });
+                });
+                $('#slidetoggle').click(function(){
+                    $('#div1').slideToggle(2000, function(){
+                        $('#myp').html("slideToggle complete");
+                    });
+                    $('#div2').slideToggle(2000, function(){
+                        $('#myp').html("slideToggle complete");
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <button type="button" name="btn1" id="slideup">slideup</button>
+        <button type="button" name="btn2" id="slidedown">slidedown</button>
+        <button type="button" name="btn3" id="slidetoggle">slidetoggle</button>
+        <p id="myp"></p>
+        <div id="div1">
+            <p>This <span>is</span> p1</p>
+            <p>This is p2</p>
+            <p>This is p3</p>
+            <p>This is p4</p>
+        </div>
+        <div id="div2">
+            <p>This <span>is</span> p1 3748273487</p>
+            <p>This is p2 2348274387238</p>
+            <p>This is p3 92384902839</p>
+            <p>This is p4 32482908349</p>
+        </div>
+    </body>
+</html>
