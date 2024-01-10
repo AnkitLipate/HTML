@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <style>
+            #div1{
+                background-color:cyan;
+                border: 1px solid red;
+                border-radius: 20px;
+                height: 200px;
+                width:  200px;
+            }
+            #div2{
+                background-color:yellow;
+                border: 1px solid red;
+                border-radius: 20px;
+                height: 200px;
+                width:  200px;
+            }
+        </style>
+        <script src="./script/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#show').change(function(){
+                if($('#show').is(':checked')){
+                    $('#div1').show(2000,function(){
+                        alert($('input:radio[name="animate"]:checked').val());
+                    });
+                }else{
+                    alert("show not selected");
+                }   
+            });
+
+            $('#hide').change(function(){
+                if($('#hide').is(':checked')){
+                    $('#div1').hide(2000,function(){
+                        alert($('input:radio[name="animate"]:checked').val());
+                    });
+                }else{
+                    alert("show not selected");
+                }   
+            });
+
+            $('#toggle').change(function(){
+                if($('#toggle').is(':checked')){
+                    $('#div1').toggle(2000,function(){
+                        alert($('input:radio[name="animate"]:checked').val());
+                    });
+                }else{
+                    alert("show not selected");
+                }   
+            });
+            var cnt = 0;
+            $('#btn1').click(function(){
+               // $('input:radio[name=animate]:nth(1)').attr('checked',true);
+               // $('input:radio[name=animate]:nth(1)').change();
+                $('input:radio[name=animate]')[cnt].checked = true;
+                if(cnt == 0){
+                    $('input:radio[name=animate]:nth(0)').change();
+                }else{
+                    if(cnt == 1){
+                        $('input:radio[name=animate]:nth(1)').change();
+                    }
+                    else{
+                        $('input:radio[name=animate]:nth(2)').change();
+                    }
+
+                }
+                
+                cnt++;
+                if(cnt > 2){
+                    cnt = 0;
+                }
+                //$('input:radio[name=animate]').filter('#show').attr('checked',true);
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            <img src="../image/flower.png" width="200px" height="200px"></img>
+        </div>
+        <div id="div2">
+            <input type="radio" name="animate" id="show" value="show">show
+            <input type="radio" name="animate" id="hide" value="hide">hide
+            <input type="radio" name="animate" id="toggle" value="toggle">toggle
+            <button type="button" name="btn" id="btn1">Select</button>
+        </div>
+    </body>
+</html>
