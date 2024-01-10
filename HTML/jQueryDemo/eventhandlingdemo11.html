@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <style>
+            .myc{
+                display:none;
+            }
+            .myclass{
+                display:block;
+            }
+        </style>
+        <script src="./script/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+            $('#show').click(function(){
+                var name = $('#nm').val();
+                var address = $('#address').val();
+                if(name.trim().length == 0 && address.trim().length == 0){
+                    alert("textboxes are blank");
+                }else{
+                    if($('#show').is(':checked')){
+                        $('#div1').addClass('myclass');
+                        $('#div1').removeClass('myc');
+                        //assign the event
+                        $('#btn1').on('click', function(){
+                            var v = $('input:radio[name=subject]:checked').val();
+                            $('#select').val(v);
+                        });
+                    }else{
+                        $('#div1').addClass('myc');
+                        $('#div1').removeClass('myclass');
+                        $('#btn1').off("click");
+                    }
+                }
+            });
+        }); 
+        </script>
+    </head>
+    <body>
+        Name: <input type="text" name="name" id="nm"> <br><br>
+        Address: <input type="text" name="address" id="address"> <br><br>
+        <input type="checkbox" name="show" id="show"><label for="show">show details</label><br><br> 
+        <div id="div1" class="myc">
+        <fieldset style="width:300px">
+            <legend>Subject</legend>
+            Name: <input type="text" name="name" id="select"><br><br>
+            <input type="radio" name="subject" id="computer" value="Computer" checked><label for="computer">Computer</label>
+            <input type="radio" name="subject" id="Java" value="Java"><label for="Java">Java</label><br><br>
+            <button type="button" name="btn" id="btn1">Show Selected</button>
+        </fieldset>
+        </div>
+    </body>
+</html>
