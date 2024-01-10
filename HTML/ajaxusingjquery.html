@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <script src="./script/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                function displayTable(arr){
+                    let str = "<table border='2' class='myc'><tr><th>User Id</th><th>Id</th>";
+                        str+="<th>Title</th><th>Details</th></tr>";
+                        for(var e of arr){
+                            str+="<tr><td>"+ e.userId+"</td><td>"+ e.id+"</td><td>"+ e.title+"</td><td>"+ e.body+"</td></tr>"
+                        }
+                        str+="</table>"
+                        alert(str);
+                        document.getElementById("mydiv").innerHTML = str;
+                }
+                 function displaydetails(ob){
+                    console.log(ob);
+                    str=`UserId : ${ob.userId}<br>Id: ${ob.id}<br>Title:${ob.title}<br>Body: ${ob.body}`;
+                    //document.getElementById("userdetails").innerHTML=str;
+                    $('#userdetails').html(str);
+                 }
+                $('#btn1').click(function(){
+                    $.ajax({
+                        async:true,
+                        url:"https://jsonplaceholder.typicode.com/posts",
+                        type:"GET",
+                        success: function(result){
+                            displayTable(result)
+                        },
+                        error: function(xhr, status, error){
+                            console.log("error occured" + status);
+                        }
+
+                    });
+                });
+                $('#btn2').click(function(){
+                    var v = $('#nm').val();
+                    $.ajax({
+                        async:true,
+                        url:"https://jsonplaceholder.typicode.com/posts/"+v,
+                        type:"GET",
+                        success: function(result){
+                            displaydetails(result)
+                        },
+                        error: function(xhr, status, error){
+                            console.log("error occured" + status);
+                        }
+                    })
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form method="get">
+            Name: <input type="text" name="nm" id="nm">
+            <button type="button" name="btn" id="btn2" >send request to get single user details</button>
+            <button type="button" name="btn" id="btn1">send request to get All details</button>
+        </form>
+        <div id="userdetails">
+
+        </div>
+        <div id="mydiv">
+
+        </div>
+    </body>
+</html>
